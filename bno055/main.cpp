@@ -8,12 +8,11 @@ Serial pc(USBTX, USBRX, 115200);
 //センサーに使用するI2C
 I2C ifaceI2C(PB_7, PB_6);
  
-//両方のセンサーをI2Cで使用する
 BOARDC_BNO055 sensor1(&ifaceI2C);
  
 int main(){
  
-    //挨拶表示
+
     pc.printf("mbed READY\r\n");
  
  
@@ -21,8 +20,7 @@ int main(){
     //I2Cインターフェースで２つのセンサーを使用する(200KHz)
     ifaceI2C.frequency(100000);
     sensor1.initialize(false);
- 
-    //それぞれのセンサーを独立して使用する場合は、initialize関数の引数をtrue(または引数なし)にすることで自動設定する
+
     pc.printf("Start Comm - -- ---- --------\r\n");
    
     wait_ms(1000);
